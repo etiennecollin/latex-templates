@@ -1,0 +1,501 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Start of Environment Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addbibresource{\latexTemplatesPath/bibliography.bib}    % Imports bibliography file
+\graphicspath{{images/}} % Set images path
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Maths %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Math operators
+\DeclareMathOperator{\im}{Im}
+
+
+% Useful shortcuts
+\newcommand{\B}{\ensuremath{\mathbb{B}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\renewcommand{\o}{\ensuremath{\emptyset}}
+\renewcommand{\O}{\ensuremath{\mathcal{O}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+
+% Distributions
+\newcommand{\ber}{\ensuremath{\mathcal{B}}\text{er}}
+\newcommand{\norm}{\ensuremath{\mathcal{N}}}
+\newcommand{\expo}{\ensuremath{\mathcal{E}}\text{xp}}
+\newcommand{\uni}{\ensuremath{\mathcal{U}}}
+
+\newcommand{\alg}[1]{\textsc{\bfseries\footnotesize #1}}
+\newcommand{\deriv}[2][]{\mathop{}\!\frac{\mathrm{d}^{#1}}{\mathrm{d}#2^{#1}}}      % For derivatives
+\newcommand{\pderiv}[3][]{\mathop{}\!\dfrac{\partial^{#1}#2}{\partial#3^{#1}}}      % For partial derivatives
+\newcommand{\pdiff}[2][]{\mathop{}\!\dfrac{\partial^{#1}}{\partial#2^{#1}}}         % For partial derivatives
+\newcommand{\diff}[2][]{\mathop{}\!\mathrm{d^{#1}}#2}                               % Integral dx
+\newcommand*{\widefbox}[1]{\fbox{\hspace{2em}#1\hspace{2em}}}                       % For boxed align envs
+\newcommand*{\approxequiv}{\mathrel{\vcenter{\offinterlineskip\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}}}}    % For an approximately equivalent symbol
+\newcommand{\mat}[1]{\bm{#1}}                                                       % ISO complying matrix variable font
+\newcommand*{\carry}[1][1]{\overset{#1}}                                            % For carrying over a number
+
+% SIunitx
+% Sets \per to display as frac
+\sisetup{per-mode=symbol-or-fraction}
+\DeclareSIUnit\Molar{\mole\per\liter}
+\DeclareSIUnit\molar{\textsc{M}}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}_{0}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Correct
+\definecolor{correct}{HTML}{009900}
+\newcommand\correct[2]{\ensuremath{\:}{\color{red}{#1}}\ensuremath{\to }{\color{correct}{#2}}\ensuremath{\:}}
+\newcommand\green[1]{{\color{correct}{#1}}}
+
+% Temporary text markers
+\newcommand{\solution}{\noindent\textbf{\large Solution}}       % Alias for the Solution section header
+\newcommand{\missing}{\textcolor{red}{\textbf{VALUE MISSING}}}  % Creates a big red "Missing Value" string.
+\newcommand{\inprogress}{\textcolor{red}{\textbf{IN PROGRESS}}} % Creates a big red "In Progress" string.
+\newcommand{\incomplete}{\textcolor{red}{\textbf{INCOMPLETE}}}  % Creates a big red "Incomplete" string.
+\newcommand{\bigred}[1]{\textcolor{red}{\textbf{#1}}}           % Creates a big red string.
+
+% hide parts
+\newcommand\hide[1]{}
+
+% Horizontal rule
+\newcommand\hr{
+    \noindent\rule[0.5ex]{\linewidth}{0.5pt}
+}
+
+% Images
+\newcommand{\simpleimage}[2][1]{
+    \includegraphics[width=\textwidth*{#1}]{#2}
+}
+\newcommand{\imagecenter}[2][1]{
+    \begin{center}
+        \includegraphics[width=\textwidth*{#1}]{#2}
+    \end{center}
+}
+\newcommand{\imageleft}[2][1]{
+    \begin{flushleft}
+        \includegraphics[width=\textwidth*{#1}]{#2}
+    \end{flushleft}
+}
+\newcommand{\imageright}[2][1]{
+    \begin{flushright}
+        \includegraphics[width=\textwidth*{#1}]{#2}
+    \end{flushright}
+}
+
+% Figures
+\newcommand{\figurecenter}[4]{
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}[H]{#1\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#2}
+            \caption{#3}
+            \label{#4}
+        \end{minipage}
+    \end{figure}
+}
+\newcommand{\figuredual}[6]{
+    \begin{figure}[H]
+        \begin{minipage}[H]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#1}
+            \raggedleft
+            \caption{#2}
+            \label{#3}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[H]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#4}
+            \caption{#5}
+            \label{#6}
+        \end{minipage}
+    \end{figure}
+}
+\newcommand{\figuredualsingle}[6]{
+    \begin{figure}[H]
+        \begin{minipage}[H]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#1}
+            \subcaption{#2}\label{#6-a}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[H]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#3}
+            \subcaption{#4}\label{#6-b}
+        \end{minipage}
+        \caption{#5}\label{#6}
+    \end{figure}
+}
+
+% Custom font (requires XeLaTeX)
+\newcommand{\customfont}[1]{
+    \usepackage{mathspec}    % Enable the power of CUSTOM FONTS with XeLaTeX
+    \setallmainfonts(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{#1}
+    \setallmonofonts[Numbers={Lining,Proportional}]{#1}
+    \setallsansfonts[Numbers={Lining,Proportional}]{#1}
+    \setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{#1}
+    \setmathsf[Numbers={Lining,Proportional}]{#1}
+    \setmathbb[Numbers={Lining,Proportional}]{#1}
+    \setmathcal[Numbers={Lining,Proportional}]{#1}
+}
+
+% Sections alignment
+% Gets label of current section
+\makeatletter\newcommand{\currentlabel}{\@currentlabelname}\makeatother
+% Sets alignment of sections (center/left/right)
+\newcommand{\formatsection}[1]{
+    \ifthenelse{\equal{#1}{center}}{
+        %Makes sections centered
+        \titleformat{\section}{\normalfont\Large\bfseries\centering}{\thesection}{1em}{}
+    }{
+        \ifthenelse{\equal{#1}{right}}{
+            %Makes sections right-aligned
+            \titleformat{\section}{\normalfont\Large\bfseries\raggedleft}{\thesection}{1em}{}
+        }{
+            \ifthenelse{\equal{#1}{left}}{
+                %Makes sections left-aligned
+                \titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+            }{
+            }
+        }
+    }
+}
+
+% Paragraphs alignment
+% Makes the paragraph command appear like a subsubsubsection
+\newcommand{\centerparagraphs}{
+    \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+    \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Augmented matrix
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+% Colored boxes
+\tcbuselibrary{breakable}
+
+\newenvironment{improvement}{\begin{tcolorbox}[
+    arc=0mm,
+    colback=white,
+    colframe=green!60!black,
+    title=Improvement,
+    fonttitle=\sffamily,
+    breakable
+]}{\end{tcolorbox}}
+
+\newenvironment{remarkbox}[1]{\begin{tcolorbox}[
+    arc=0mm,
+    colback=white,
+    colframe=white!60!black,
+    title=#1,
+    fonttitle=\sffamily,
+    breakable
+]}{\end{tcolorbox}}
+
+% Part
+\newcounter{partCounter}
+% \part creates a numbered subsection.
+\renewcommand{\part}{\subsection{Part (\alph{partCounter})}\stepcounter{partCounter}}
+
+% Sect
+% Will write "continued" when content spans >1 page. Argument adjusts the name of the section.
+\newenvironment{sect}[1]{
+    \pagebreak
+    \section{#1}
+    \setcounter{partCounter}{1}
+    \nobreak\extramarks{}{}\nobreak{}
+    \nobreak\extramarks{Section \arabic{section}\ (continued)}{Continued on next page\ldots}\nobreak{}
+}{
+    \nobreak\extramarks{Section \arabic{section}\ (continued)}{Continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{}{}\nobreak{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Setting theorem styles
+\mdfsetup{skipabove=1em,skipbelow=0em}
+\theoremstyle{definition}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+    }
+]{thmgreenbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+    }
+]{thmbluebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue
+    }
+]{thmblueline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+    }
+]{thmredbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!1,
+    },
+    qed=\qedsymbol
+]{thmsandbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
+    },
+]{thmlightbluebox}
+
+
+\declaretheorem[style=thmgreenbox, name=Definition]{definition}
+\declaretheorem[style=thmbluebox, numbered=no, name=Example]{example}
+\declaretheorem[style=thmbluebox, numbered=no, name=Problem]{problem}
+\declaretheorem[style=thmredbox, name=Proposition]{proposition}
+\declaretheorem[style=thmredbox, name=Theorem]{theorem}
+\declaretheorem[style=thmredbox, name=Lemma]{lemma}
+\declaretheorem[style=thmredbox, numbered=no, name=Corollary]{corollary}
+
+\declaretheorem[style=thmsandbox, name=Proof]{replacementproof}
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+\declaretheorem[style=thmlightbluebox, name=Explanation]{tmpexplanation}
+\newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
+
+\declaretheorem[style=thmblueline, numbered=no, name=Remark]{remark}
+\declaretheorem[style=thmblueline, numbered=no, name=Claim]{claim}
+\declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
+
+\newtheorem*{notation}{Notation}
+\newtheorem*{previouslyseen}{As previously seen}
+% \newtheorem*{problem}{Problem}
+\newtheorem*{observe}{Observe}
+\newtheorem*{property}{Property}
+\newtheorem*{intuition}{Intuition}
+
+\makeatletter
+\newcommand{\exercise}[1]{%
+    \def\@exercise{#1}%
+    \subsection*{Exercise #1}
+}
+\newcommand{\subexercise}[1]{%
+    \subsubsection*{Exercise \@exercise.#1}
+}
+\makeatother
+
+% Change QED symbol
+\renewcommand\qedsymbol{QED}
+
+% % Plain style (numbered)
+% \theoremstyle{plain}
+% \newtheorem{definition}{Definition}[subsection]
+% \newtheorem{theorem}{Theorem}[subsection]
+% \newtheorem{example}{Example}[theorem]
+% \newtheorem{corollary}{Corollary}[theorem]
+% \newtheorem{lemma}{Lemma}[theorem]
+% \newtheorem{proposition}{Proposition}[theorem]
+% % Plain style (unnumbered)
+% \newtheorem*{definition*}{Definition}
+% \newtheorem*{theorem*}{Theorem}
+% \newtheorem*{example*}{Example}
+% \newtheorem*{corollary*}{Corollary}
+% \newtheorem*{lemma*}{Lemma}
+% \newtheorem*{proposition*}{Proposition}
+
+% % Definition style (numbered)
+% \theoremstyle{definition}
+% \newtheorem{exercise}{Exercise}[subsection]
+% % Definition style (unnumbered)
+% \newtheorem*{exercise*}{Exercise}
+
+% % Remark style (numbered)
+% \theoremstyle{remark}
+% \newtheorem{remark}{Remark}
+% \newtheorem{case}{Case}
+% \newtheorem{claim}{Claim}[subsection]
+% % Remark style (unnumbered)
+% \newtheorem*{remark*}{Remark}
+% \newtheorem*{case*}{Case}
+% \newtheorem*{claim*}{Claim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Tikz
+\usetikzlibrary{cd, intersections, angles, quotes, calc, positioning, arrows.meta}
+\tikzset{
+    force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
+}
+
+% pgfplots
+\pgfplotsset{compat=1.13}
+
+% Enables new list environment that supports nesting
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=.\arabic*}
+\setlist[legal,1]{label=\arabic*}
+
+% TOC & Sections
+% Sets TOC depth and change changes its display name
+\setcounter{secnumdepth}{3} % Change to 0 for unnumbered sections
+\addto\captionsenglish{
+  \renewcommand{\contentsname}{Table of Contents}
+}
+
+% tabularx
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{B}[1]{r*{#1}{@{\,}r}}
+
+% Caption/Ref settings
+\captionsetup{
+    format = hang,
+    labelfont = sc,
+    skip = 6pt,
+    hypcapspace = 96pt
+}
+
+% BibLaTex
+% Set \cite to \autocite
+\let\oldcite\cite
+\renewcommand{\cite}{\autocite}
+% Makes number created by \supercite to be between brackets.
+\let\oldsupercite\supercite
+\renewcommand{\supercite}[1]{\textsuperscript{[}\oldsupercite{#1}\textsuperscript{]}}
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]{%
+    \iffieldundef{prenote}{}{\BibliographyWarning{Ignoring prenote argument}}%
+    \iffieldundef{postnote}{}{\BibliographyWarning{Ignoring postnote argument}}%
+}
+{\usebibmacro{citeindex}\,\bibopenbracket\usebibmacro{cite}\bibclosebracket}
+{\supercitedelim}{}
+
+% PDF export settings
+\hypersetup{
+    pdftex,
+    pdfauthor = {Etienne Collin},
+    bookmarksnumbered = true,
+    bookmarksopen = true,
+    bookmarksopenlevel = 1,
+    pdfstartview = Fit,
+    pdfpagemode = UseOutlines,
+    pdfpagelayout = TwoPageRight,
+    colorlinks = true,        % Colors links instead of ugly boxes
+    urlcolor = DarkBlue,    % Color for external hyperlinks
+    linkcolor = black,        % Color of internal links
+    citecolor = black,        % Color of citations
+    filecolor = black,        % Color of file links
+}
+
+% %http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning
+\pdfsuppresswarningpagegroup=1
+
+
+% lstlistings setup
+\definecolor{myorange}{RGB}{163,21,21}
+\definecolor{myteal}{RGB}{43,145,175}
+\definecolor{mypurple}{RGB}{198,115,255}
+\definecolor{mydarkpurple}{RGB}{111,0,138}
+\definecolor{mygreen}{RGB}{0,128,0}
+
+\lstset{
+    emphstyle=\bfseries\color{green},
+    backgroundcolor=\color{white},                    % Requires xcolor
+    commentstyle=\color{mygreen},
+    identifierstyle=\color{black},
+    keywordstyle=\color{myteal},
+    keywordstyle={[2]\color{mydarkpurple}},         % Define these or use a custom language
+    stringstyle=\color{myorange}\ttfamily,          % string literal style
+    numberstyle=\color{black},                      % the style that is used for the line-numbers
+    rulecolor=\color{black},                        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+    otherkeywords={self},
+    basicstyle=\singlespacing\scriptsize\ttfamily,  % the size of the fonts that are used for the code
+    captionpos=b,                                   % sets the caption-position to bottom
+    breakatwhitespace=true,                         % sets if automatic breaks should only happen at whitespace
+    breaklines=true,                                % sets automatic line breaking
+    deletekeywords={},                              % if you want to delete keywords from the given language
+    escapeinside={\%*}{*)},                         % if you want to add LaTeX within your code
+    extendedchars=true,                             % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+    firstnumber=0,                                  % start line enumeration with line 0
+    frame=tb,                                       % adds a frame around the code
+    keepspaces=true,                                % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+    morekeywords={*},                               % if you want to add more keywords to the set
+    numbers=left,                                   % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=6pt,                                  % how far the line-numbers are from the code
+    showspaces=false,                               % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+    showstringspaces=false,                         % underline spaces within strings only
+    showtabs=false,                                 % show tabs within strings adding particular underscores
+    stepnumber=1,                                   % the step between two line-numbers. If it's 1, each line will be numbered
+    tabsize=4,                                      % sets default tabsize to 4 spaces
+    title=\lstname,                                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    belowskip=-1\baselineskip,                      % sets spacing under listing
+    % belowcaptionskip=1\baselineskip,              % sets spacing under caption
+    % literate=%
+    %     {0}{{\textcolor{yellow}{0}}}{1}%
+    %     {1}{{\textcolor{yellow}{1}}}{1}%
+    %     {2}{{\textcolor{yellow}{2}}}{1}%
+    %     {3}{{\textcolor{yellow}{3}}}{1}%
+    %     {4}{{\textcolor{yellow}{4}}}{1}%
+    %     {5}{{\textcolor{yellow}{5}}}{1}%
+    %     {6}{{\textcolor{yellow}{6}}}{1}%
+    %     {7}{{\textcolor{yellow}{7}}}{1}%
+    %     {8}{{\textcolor{yellow}{8}}}{1}%
+    %     {9}{{\textcolor{yellow}{9}}}{1}%
+    %     {.0}{{\textcolor{yellow}{.0}}}{2}% Following is to ensure that only periods
+    %     {.1}{{\textcolor{yellow}{.1}}}{2}% followed by a digit are changed.
+    %     {.2}{{\textcolor{yellow}{.2}}}{2}%
+    %     {.3}{{\textcolor{yellow}{.3}}}{2}%
+    %     {.4}{{\textcolor{yellow}{.4}}}{2}%
+    %     {.5}{{\textcolor{yellow}{.5}}}{2}%
+    %     {.6}{{\textcolor{yellow}{.6}}}{2}%
+    %     {.7}{{\textcolor{yellow}{.7}}}{2}%
+    %     {.8}{{\textcolor{yellow}{.8}}}{2}%
+    %     {.9}{{\textcolor{yellow}{.9}}}{2}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Environment Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

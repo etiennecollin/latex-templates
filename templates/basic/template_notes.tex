@@ -1,0 +1,25 @@
+\newcommand{\latexTemplatesPath}{/absolute/path/to/latex-templates}
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{\latexTemplatesPath/packages}
+\usepackage[style=ieee,backref=true,backend=biber,date=iso,datezeros=true,seconds=true]{biblatex}
+
+% DOCUMENT USER SETTINGS ==============================================================================================
+\newcommand{\docAuthorName}{Etienne Collin}
+\newcommand{\docAuthorStudentNumber}{XXXXXXX}
+\newcommand{\docAuthorTitlePage}{\docAuthorName\ - \docAuthorStudentNumber}
+\newcommand{\docClassInstructor}{Professor Name}
+\newcommand{\docTitle}{Document Title}
+\input{\latexTemplatesPath/templates/basic/page_settings}   % Imports custom page settings
+\input{\latexTemplatesPath/templates/basic/environment}     % Imports custom environments and definitions
+\formatsection{center}                                      % Sets alignment of section headers
+
+% SOURCE ==============================================================================================================
+\begin{document}
+% START OF DOCUMENT ===================================================================================================
+
+% Content here
+
+% END OF DOCUMENT =====================================================================================================
+\end{document}

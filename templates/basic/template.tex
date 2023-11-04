@@ -1,0 +1,47 @@
+\newcommand{\latexTemplatesPath}{/absolute/path/to/latex-templates}
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{\latexTemplatesPath/packages}
+\usepackage[style=ieee,backref=true,backend=biber,date=iso,datezeros=true,seconds=true]{biblatex}
+
+% DOCUMENT USER SETTINGS ==============================================================================================
+\newcommand{\docAuthorName}{Etienne Collin}
+\newcommand{\docAuthorStudentNumber}{XXXXXXX}
+\newcommand{\docAuthorTitlePage}{\docAuthorName\ - \docAuthorStudentNumber}
+\newcommand{\docClass}{Class Name}
+\newcommand{\docClassInstructor}{Professor Name}
+\newcommand{\docClassNumber}{Class Number}
+\newcommand{\docClassSection}{Section X}
+\newcommand{\docClassSemester}{Fall 2021}
+\newcommand{\docDueDate}{October 25, 2021}
+\newcommand{\docDueTime}{23:59}
+\newcommand{\docSubtitle}{Subtitle}
+\newcommand{\docTitle}{Title}
+\input{\latexTemplatesPath/templates/basic/page_settings}       % Imports custom page settings
+\input{\latexTemplatesPath/templates/basic/environment}         % Imports custom environments and definitions
+% \fancyhf[HR]{\docClassTime}                                   % Removes student number from right header
+
+% SOURCE ==============================================================================================================
+\begin{document}
+\input{\latexTemplatesPath/templates/basic/title_page_udem}
+
+% \todototoc
+% \listoftodos
+% \pagebreak
+
+% START OF DOCUMENT ===================================================================================================
+
+% CONTENT HERE
+
+% END OF DOCUMENT =====================================================================================================
+% % List of figures/tables
+% \pagebreak
+% \begin{appendix}
+%     \phantomsection\listoffigures
+%     \phantomsection\listoftables
+% \end{appendix}
+
+\pagebreak\phantomsection\printbibliography[heading=bibintoc]
+%\nocite{}
+\end{document}

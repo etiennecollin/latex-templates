@@ -1,0 +1,107 @@
+% DEFINITIONS =========================================================================================================
+% Paths
+\graphicspath{{images/}}
+
+% tabularx
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand{\arraystretch}{0.75}
+
+% BASIC DOCUMENT SETTINGS AND TITLE PAGE ==============================================================================
+% PDF export settings
+\hypersetup{
+    pdftex,
+    pdfauthor = {Etienne Collin},
+    bookmarksnumbered = true,
+    bookmarksopen = true,
+    bookmarksopenlevel = 1,
+    pdfstartview = Fit,
+    pdfpagemode = UseOutlines,
+    pdfpagelayout = TwoPageRight,
+    colorlinks = true,              % Colors links instead of ugly boxes
+    urlcolor = DarkBlue,            % Color for external hyperlinks
+    linkcolor = black,              % Color of internal links
+    citecolor = black,              % Color of citations
+    filecolor = black,              % Color of file links
+}
+
+% Custom font
+\newcommand{\customfont}[1]{
+    \usepackage{mathspec}           % Enable the power of CUSTOM FONTS with XeLaTeX
+    \setallmainfonts(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{#1}
+    \setallmonofonts[Numbers={Lining,Proportional}]{#1}
+    \setallsansfonts[Numbers={Lining,Proportional}]{#1}
+    \setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{#1}
+    \setmathsf[Numbers={Lining,Proportional}]{#1}
+    \setmathbb[Numbers={Lining,Proportional}]{#1}
+    \setmathcal[Numbers={Lining,Proportional}]{#1}
+}
+
+% SETUP/ALIASES =======================================================================================================
+\newcommand{\imagecenter}[2][1]{
+    \begin{center}
+        \includegraphics[width=\textwidth*{#1}]{#2}
+    \end{center}
+}
+\newcommand{\imageleft}[2][1]{
+    \begin{flushleft}
+        \includegraphics[width=\textwidth*{#1}]{#2}
+    \end{flushleft}
+}
+\newcommand{\imageright}[2][1]{
+    \begin{flushright}
+        \includegraphics[width=\textwidth*{#1}]{#2}
+    \end{flushright}
+}
+\newcommand{\figurecenter}[4]{
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}[H]{#1\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#2}
+            \caption{#3}
+            \label{#4}
+        \end{minipage}
+    \end{figure}
+}
+\newcommand{\figuredual}[6]{
+    \begin{figure}[H]
+        \begin{minipage}[H]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#1}
+            \raggedleft
+            \caption{#2}
+            \label{#3}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[H]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#4}
+            \caption{#5}
+            \label{#6}
+        \end{minipage}
+    \end{figure}
+}
+\newcommand{\figuredualsingle}[6]{
+    \begin{figure}[H]
+        \begin{minipage}[H]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#1}
+            \subcaption{#2}\label{#6-a}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[H]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{#3}
+            \subcaption{#4}\label{#6-b}
+        \end{minipage}
+        \caption{#5}\label{#6}
+    \end{figure}
+}
+
+
+% Enables new list environment that supports nesting
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=.\arabic*}
+\setlist[legal,1]{label=\arabic*}
+
+% END OF SETUP DOCUMENT ===============================================================================================

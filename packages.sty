@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Utilities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xpatch}                                 % Used to patch macros and other stuff
+\usepackage{xparse}                                 % Adds support for multiple optional arguments
+\usepackage{subfiles}                               % Used to include subfiles that can be rendered on their own
+\usepackage[svgnames, dvipsnames, usenames, hyperref]{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc}                            % Adds compatibility with accented characters
+\usepackage{lmodern}                                % Adds support for certain fonts.
+\usepackage{slantsc}                                % Adds slanted smallcaps
+\usepackage{marvosym}                               % Adds new symbols
+
+\usepackage{fancyhdr}                               % For pagestyle, header, footer, etc.
+\usepackage{extramarks}                             % Used for "Problem continued" in header/footer with fancyhdr
+\usepackage{titlesec}                               % Used to change the formatting of sections (centering section title)
+\usepackage{setspace}                               % Adds support for text spacing (doublespacing, singlespacing, etc)
+\usepackage{lastpage}                               % Used to refer to last page: \pageref{LastPage}
+\usepackage{multicol}                               % Span multiple columns
+
+\usepackage{afterpage}                              % Used for "continued" environment
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Maths %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}                                % Adds math equations alignment, functions, etc.
+\usepackage{amssymb}                                % Adds math symbols
+\usepackage{amsthm}                                 % Adds theorems, lemma, proofs, etc.
+\usepackage{mathtools}                              % Provides multlined env inside split/equation/align envs
+\usepackage{amsfonts}                               % Provides math fonts
+\usepackage{mathrsfs}                               % Provides math fonts
+\usepackage{stmaryrd}                               % Provides CS fonts
+\usepackage{bm}                                     % Adds bold font for matrix variables
+\usepackage{xlop}                                   % Adds support for long division
+\usepackage{xfrac}                                  % Provides better fractions.
+\usepackage{empheq}                                 % Used to put a box around an \align environment
+\usepackage[separate-uncertainty=true]{siunitx}     % Provides the \unit{} command for typesetting SI units
+\usepackage{cancel}                                 % Used to cancel units in siunitx
+\usepackage{systeme}                                % Adds support for systems of equations
+\usepackage{thmtools}                               % Adds support for theorem environments
+\usepackage[framemethod=TikZ]{mdframed}             % Adds support for framed environments
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Graphics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage{float}                                  % Used to place figures where they appear in source
+\usepackage{graphicx}                               % Required for the inclusion of images
+
+\usepackage{enumitem}                               % Adds lists
+\usepackage{listings}                               % Insert code using \begin{lstlisting} exactly as written
+
+\usepackage{tabularx}                               % Adds better tables
+\usepackage{multirow}                               % Adds columns that span multiple rows in tabular environment
+\usepackage{diagbox}                                % Adds cells with diagonally separated sub-cells
+\usepackage{hhline}                                 % Adds custom horizontal lines in tabular environment
+\usepackage{booktabs}                               % Adds better formal tables
+
+\usepackage{todonotes}                              % Adds todo notes
+\usepackage{tcolorbox}                              % Adds support for colored boxes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quotes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tocbibind}                              % Adds content in TOC. https://ctan.math.ca/tex-archive/macros/latex/contrib/tocbibind/tocbibind.pdf
+\usepackage{hyperref}                               % Hyperlinks in TOC and ability refer to current section name
+\usepackage{quoting}
+\usepackage{csquotes}                               % Adds possibility to get better quoting environments
+\usepackage{caption}                                % Provides better caption management
+\usepackage[list=true]{subcaption}                  % Provides better subcaption management
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MISC PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[version=4]{mhchem}                      % Package for chemical equation typesetting
+\usepackage{karnaugh-map}                           % Used for Karnaugh tables
+\usepackage{lipsum}                                 % Adds lipsum{} command for testing text
+
+% Custom packages
+\input{\latexTemplatesPath/packages/fitch.sty}

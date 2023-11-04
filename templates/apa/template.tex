@@ -1,0 +1,43 @@
+\newcommand{\latexTemplatesPath}{/absolute/path/to/latex-templates}
+
+\documentclass[stu, 12pt, donotrepeattitle, svgnames, floatsintext]{apa7}                                % For more info, see https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/apa7/apa7.pdf
+\usepackage[english]{babel}                                                                                % Selects language of document
+\usepackage{\latexTemplatesPath/templates/apa/packages}                                                                        % Imports custom packages selection
+\usepackage[style=apa,autocite=inline,sortcites=true,sorting=nyt,backend=biber,date=iso]{biblatex}        % Bibliography options. autocite=<inline, footnote, superscript, plain>
+\input{\latexTemplatesPath/templates/basic/environment}                                                                        % Imports custom environments and definitions
+
+% DOCUMENT USER SETTINGS ==============================================================================================
+\title{Title of the document}
+\shorttitle{The Stroop Effect}
+\leftheader{Collin, Mortier, Nadeau}
+\authorsnames{Etienne Collin,Marie Mortier,Nadia Nadeau}
+\authorsaffiliations{Affiliation 1, Affiliation 2, Affiliation 3}
+\course{Class number and name}
+\professor{Professor name}
+\duedate{Due date}
+\authornote{This is an author note}
+\abstract{This is an abstract.}
+\keywords{Keywords}
+
+\begin{document}
+\maketitle
+% START OF DOCUMENT ===================================================================================================
+\section{Section}
+This is a section.
+
+\subsection{Subsection}
+This is a subsection. \autocite{webbMisdiagnosisDualDiagnosis2011}
+\paragraph{Paragraph}
+This is a paragraph.
+\subparagraph{Subparagraph}
+This is a subparagraph.
+\subsubsection{Subsubsection}
+This is a subsubsection
+% END OF DOCUMENT =====================================================================================================
+\pagebreak
+
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\printbibliography[title={References}]
+%\nocite{}
+\end{document}

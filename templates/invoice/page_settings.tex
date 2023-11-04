@@ -1,0 +1,21 @@
+\usepackage[svgnames, hyperref]{xcolor}    % See p.42 https://mirror.its.dal.ca/ctan/macros/latex/contrib/xcolor/xcolor.pdf
+
+% Page settings
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\renewcommand\headrulewidth{0pt}                % Width of line separation head from body
+\linespread{1.1}
+\pagestyle{fancy}
+\fancyhf[HL]{\authorName}                       % Content on left of head
+\fancyhf[HC]{Invoice for \clientName}           % Content on center of head
+\fancyhf[HR]{\today}                            % Content on right of head
+
+\fancyhf[FL]{\footerLeftContent}                % Content on left of foot
+\fancyhf[FC]{\thepage\,of\,\pageref{LastPage}}  % Content on center of foot
+\fancyhf[FR]{\footerRightContent}               % Content on right of foot
+\renewcommand\headrulewidth{0.4pt}              % Width of line separation head from body
+\renewcommand\footrulewidth{0.4pt}              % Width of line separation foot from body

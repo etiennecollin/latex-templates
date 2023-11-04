@@ -1,0 +1,73 @@
+\newcommand{\latexTemplatesPath}{/absolute/path/to/latex-templates}
+
+\documentclass[6pt]{letter}
+\usepackage[english]{babel}                                     % Selects language of document
+\usepackage{\latexTemplatesPath/templates/invoice/packages}     % Imports custom packages selection
+%\usepackage{indentfirst}                                       % Used to indent first paragraph of section
+
+% DOCUMENT USER SETTINGS ==============================================================================================
+\newcommand{\authorLocation}{Montreal, Quebec, Canada}
+\newcommand{\authorName}{Etienne Collin}
+\newcommand{\clientName}{Client Name}
+\newcommand{\footerLeftContent}{Instagram: \href{https://instagram.com/etienne.collin}{@etienne.collin}\\Mail: \href{mailto:collin.etienne.contact@gmail.com}{collin.etienne.contact@gmail.com}}
+\newcommand{\footerRightContent}{\href{https://etiennecollin.com}{etiennecollin.com}}
+\newcommand{\myTitle}{Your Title (Photographer \& Filmmaker)}
+
+\input{\latexTemplatesPath/templates/invoice/page_settings}     % Imports custom page settings
+\input{\latexTemplatesPath/templates/invoice/environment}       % Imports custom environments and definitions
+% \customfont{Comic Sans MS}                                    % Use a custom font
+
+% SOURCE ===============================================================================================================
+\begin{document}
+% HEADER ===============================================================================================================
+\singlespacing
+\large
+\textsc{\authorName}\\
+\textsc{\myTitle}\\
+\textsc{\authorLocation}
+\vspace{0.5cm}
+\Large\textsc{Invoice To}
+\huge\textbf{\clientName}\normalsize
+% ======================================================================================================================
+
+% START OF DOCUMENT ===================================================================================================
+\begin{tabularx}{\linewidth}{Y Y Y Y}
+    \hhline{====}\\
+    \large\bf{Service}  &   \large\bf{Rate} &   \large\bf{Hours}                        &   \large\bf{Payment due}  \\[6pt]
+    \hhline{====}\\
+    Preparation         &   \$1.00          &   0                                       &   \$0.00                  \\[6pt]
+    \hline\\
+    Transportation      &   \$1.00          &   0                                       &   \$0.00                  \\[6pt]
+    \hline\\
+    Event               &   \$1.00          &   0                                       &   \$0.00                  \\[6pt]
+    \hline\\
+    Processing          &   \$1.00          &   0                                       &   \$0.00                  \\[6pt]
+    \hline\\
+    Editing             &   \$1.00          &   0                                       &   \$0.00                  \\[6pt]
+    \hline\\
+    Grading             &   \$1.00          &   0                                       &   \$0.00                  \\[6pt]
+    \hline\\
+    Audio               &   \$1.00          &   0                                       &   \$0.00                  \\[6pt]
+    \hline\\
+    Rendering           &   \$1.00          &   0                                       &   \$0.00                  \\[6pt]
+    \hline\\
+    Accessory fees      &   NA              &   NA                                      &   \$0.00                  \\[6pt]
+    \hhline{====}\\
+                        &                   &   \multicolumn{2}{r}{Total: \$0.00}                                   \\[6pt]
+    \hhline{~~~-}\\
+                        &                   &   \multicolumn{2}{r}{Payment Received: \$0.00}                        \\[6pt]
+    \hhline{~~~-}\\
+                        &                   &   \multicolumn{2}{r}{Balance Due: \$0.00}                             \\[6pt]
+    \hhline{~~~=}
+\end{tabularx}
+
+\vspace{1cm}
+\begin{tabularx}{\linewidth}{l}
+    \Large\textbf{Payment instructions}\\[6pt]
+    \large\textbf{Interac e-Transfer:}\\
+    \href{mailto:collin.etienne.contact@gmail.com}{collin.etienne.contact@gmail.com}
+\end{tabularx}
+
+% END OF DOCUMENT =====================================================================================================
+
+\end{document}

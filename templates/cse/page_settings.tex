@@ -1,0 +1,40 @@
+\usepackage[svgnames, hyperref]{xcolor}    % See p.42 https://mirror.its.dal.ca/ctan/macros/latex/contrib/xcolor/xcolor.pdf
+
+% Page settings
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1.1}
+\pagestyle{fancy}
+\fancyhf[HL]{\firstxmark}                   % Content on left of head
+\fancyhf[HC]{}                              % Content on center of head
+\fancyhf[HR]{\docTitle\ \thepage}           % Content on right of head
+\fancyhf[FL]{\docClassInstructor}           % Content on left of foot
+\fancyhf[FC]{\docClassTime}                 % Content on center of foot
+\fancyhf[FR]{\lastxmark}                    % Content on right of foot
+\renewcommand\headrulewidth{0.4pt}          % Width of line separation head from body
+\renewcommand\footrulewidth{0.4pt}          % Width of line separation foot from body
+\setlength\parindent{0.5in}                 % Custom Paragraph indentation
+
+\formatsection{center}
+\titlespacing\section{0pt}{0pt}{-6pt}
+\titlespacing\subsection{0pt}{0pt}{-3pt}
+
+% Removes parenthesis around date in bibliography
+\xpatchbibmacro{date+extradate}{%
+  \printtext[parens]%
+}{%
+  \setunit{\addperiod\space}%
+  \printtext%
+}{}{}
+
+% Makes the issue number of an article in parenthesis
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}

@@ -1,0 +1,61 @@
+\newcommand{\latexTemplatesPath}{/absolute/path/to/latex-templates}
+
+\documentclass{article}
+\usepackage[english]{babel}                                                                                                        % Selects language of document
+\usepackage{\latexTemplatesPath/packages}                                                                                                    % Imports custom packages selection
+\usepackage[style={\latexTemplatesPath/biblatex-styles/cse},sorting=nyt,backref=false,backend=biber,date=year,labeldate=year]{biblatex}    % Bibliography options. autocite=<inline, footnote, superscript, plain>
+\usepackage{indentfirst}                                                                                                        % Used to indent first paragraph of section
+
+% DOCUMENT USER SETTINGS ==============================================================================================
+\newcommand{\docAuthorName}{Etienne Collin}
+\newcommand{\docAuthorStudentNumber}{XXXXXXX}
+\newcommand{\docAuthorTitlePage}{\docAuthorName\ - \docAuthorStudentNumber}
+\newcommand{\docClass}{Class Name}
+\newcommand{\docClassInstructor}{Professor Name}
+\newcommand{\docClassNumber}{Class Number}
+\newcommand{\docClassSection}{Section X}
+\newcommand{\docClassSemester}{Fall 2021}
+\newcommand{\docDueDate}{October 25, 2021}
+\newcommand{\docDueTime}{23:59}
+\newcommand{\docSubtitle}{Subtitle}
+\newcommand{\docTitle}{Title}
+\input{\latexTemplatesPath/templates/basic/environment}
+\input{\latexTemplatesPath/templates/cse/page_settings}
+
+% SOURCE ==============================================================================================================
+\begin{document}
+\singlespacing\input{\latexTemplatesPath/templates/basic/title_page_udem}
+
+\doublespacing
+\begin{sect}{Abstract}
+    \lipsum[1]
+\end{sect}
+\pagebreak
+
+\singlespacing
+\tableofcontents\pagebreak
+\doublespacing
+% START OF DOCUMENT ===================================================================================================
+\begin{sect}{Results}
+    \lipsum[2]
+\end{sect}
+
+\begin{sect}{Discussion}
+    \lipsum[3]
+\end{sect}
+
+\begin{sect}{Conclusion}
+    \lipsum[4]
+\end{sect}
+
+% END OF DOCUMENT =====================================================================================================
+\pagebreak
+\phantomsection
+\begin{appendix}
+    \listoftables
+    \pagebreak
+    \listoffigures
+\end{appendix}
+
+\pagebreak\phantomsection\printbibliography[heading=bibintoc,title={References}]
+\end{document}

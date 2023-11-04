@@ -1,0 +1,44 @@
+\newcommand{\latexTemplatesPath}{/absolute/path/to/latex-templates}
+
+\documentclass[mla8]{mla}                               % For information, see http://tug.ctan.org/tex-archive/macros/latex/contrib/mlacls/mla.pdf
+\usepackage{\latexTemplatesPath/packages}               % Imports custom packages selection
+\input{\latexTemplatesPath/templates/basic/environment} % Imports custom environments and definitions
+
+% DOCUMENT USER SETTINGS ==============================================================================================
+\title{Sample MLA Document}
+\author{Etienne Collin}
+\professor{Professor Name}
+\course{Course number and name}
+\date{2 November 2022}
+
+\begin{document}
+\begin{paper}
+
+This is a MLA formatted paper.
+
+\section{Section}
+This is a new section. This is a new section. This is a new section. This is a new section. This is a new section. This is a new section. This is a new section. This is a new section. This is a new section. This is a new section. This is a new section.
+\begin{blockquote}
+    Hi, this is a block quote. \cite[3]{labuteShapeThings2001}
+\end{blockquote}
+Back to the section\endnote{endnotes work.}
+
+\subsection{Subsection}
+The ''figure'' and ''table'' environments work exactly as expected! Just make sure to use ''\textbackslash{}begin\{figure\}[H]'' if you want the image to stay exactly where you put it.
+
+% \begin{figure}[H]
+%     \includegraphics[width=0.5\linewidth]{mla-example-image}
+%     \caption{A scene from atop Spruce Knob, West Virginia}
+% \end{figure}
+
+\end{paper}
+
+\begin{notes}
+    \printendnotes
+\end{notes}
+
+\begin{workscited}
+    \printbibliography[heading=none]
+\end{workscited}
+
+\end{document}
