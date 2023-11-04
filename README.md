@@ -1,4 +1,4 @@
-# $\LaTeX$-templates <!-- omit from toc -->
+# LaTeX-templates <!-- omit from toc -->
 
 - [What it is](#what-it-is)
 - [How to use it](#how-to-use-it)
